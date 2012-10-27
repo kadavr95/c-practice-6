@@ -6,7 +6,7 @@
 int main(void){
   int m[12],av,sum=0,a,i,n=0;
   printf("Exercise 6. Variant 4\n\n");
-  for (i = ; i < 10; i++) {
+  for (i = 0; i <=11; i++) {
 
   }
   printf("Dimini Inc.\n");
