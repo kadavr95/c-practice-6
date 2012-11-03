@@ -1,4 +1,4 @@
-#include <stdio.h>															  //подключение библиотек содержащих функции ввода, вывода и математических  функций
+#include <stdio.h>															    //подключение библиотек содержащих функции ввода, вывода, математических  функций, и функции рандом
 #include <math.h>
 #include <stdlib.h>
 #include <time.h>
@@ -6,33 +6,33 @@
 const int k = 13;
 
 int main(void){
-  int d,dd,a,n,e[13],i,j,t,sum=0,sum2=0,kv=0,kv2=0, *q;                                               //определение переменных и присваивание им необходимых значений
+  int d,dd,a,n,e[13],i,j,t,sum=0,sum2=0,kv=0,kv2=0, *q;                          //определение переменных и присваивание им необходимых значений
   float av,av2;
   int stime;
   long int ltime;
-  printf("Yaskovich Dmitry (T01-01c). Exercise 6. Variant 4\n\n");                  //Информация о программе
-  printf("Enter interval and number A:\n");
-  scanf("%d %d %d",&d,&dd,&a);
+  printf("Yaskovich Dmitry (T01-01c). Exercise 6. Variant 4\n\n");              //Информация о программе
+  printf("Enter interval and number A:\n");                                     //получение интервала и числа а
+  scanf("%d %d %d",&d,&dd,&a);                                                  //создание последовательности рандом
   ltime=time(NULL);
   stime=(unsigned) ltime/2;
-  srand(stime);
+  srand(stime);                                                                 //заполнение массива и вычисление сумм и количеств элементов
   for (i = 1; i <= (k-1); i++) {
 	e[i]=d+(int)((dd-d)*(rand() / (RAND_MAX + 1.0)));
-	if (e[i]<a) {
+	if (e[i]<a) {                                                               //индексы
 	 sum+=e[i];
 	 kv++;
 	}
-	q=&e[i];
-	if (q<a) {
+	q=&e[i];                                                                    //адресная арифметика
+	if (*q<a) {
 	  sum2+=*q;
 	  kv2++;
 	}
   }
-  if (((k-1)%6)==0)
+  if (((k-1)%6)==0)                                                             //задание настроек вывода цикла
 	t=k/6;
   else
 	t=k/6+1;
-  for (i = 1; i <= t; i++) {
+  for (i = 1; i <= t; i++) {                                                    //вывод массива
 	printf("-------------------------------------------\n");
 	printf("Index: ");
 	for (j = 1; j <= 6; j++) {
@@ -46,34 +46,35 @@ int main(void){
 	printf("\n");
   }
   printf("-------------------------------------------\n");
-  if (kv>0) {
+  if (kv>0) {                                                                   //среднее индексы
   av=sum/kv;
   printf("Average of elements less than A: %f\n",av);
   }
   else
   printf("Average of elements less than A: N/A\n");
   kv=0;
-  for (i = 1; i <=k; i++) {
+  for (i = 1; i <=k; i++) {                                                     //кол-во индексы
 	if (e[i]<av) {
 	  kv++;
 	}
   }
   printf("Quantity of elements less than average: %d\n",kv);
-
-   if (kv2>0) {
+  printf("\n");
+   if (kv2>0) {                                                                 //среднее адресная арифметика
   av2=sum2/kv2;
   printf("Average of elements less than A: %f\n",av2);
   }
   else
   printf("Average of elements less than A: N/A\n");
   kv2=0;
-  for (i = 1; i <=k; i++) {
+  for (i = 1; i <=k; i++) {                                                     //кол-во адресная арифметика
 	q=&e[i];
-	if (p<av) {
-	  kv++;
+	if (*q<av) {
+	  kv2++;
 	}
   }
   printf("Quantity of elements less than average: %d\n",kv);
+  printf("\n");
   printf("Dimini Inc.\n");                                                      //Авторские права
   printf("For progressive future\n");
   printf("(c)2009-2012\n");
@@ -81,3 +82,4 @@ int main(void){
   getchar();
   return 0;
 }
+
