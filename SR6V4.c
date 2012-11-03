@@ -6,8 +6,8 @@
 const int k = 13;
 
 int main(void){
-  int d,dd,a,n,e[13],i,j,t,sum=0,kv=0;                                               //определение переменных и присваивание им необходимых значений
-  float m,av;
+  int d,dd,a,n,e[13],i,j,t,sum=0,sum2=0,kv=0,kv2=0, *q;                                               //определение переменных и присваивание им необходимых значений
+  float av,av2;
   int stime;
   long int ltime;
   printf("Yaskovich Dmitry (T01-01c). Exercise 6. Variant 4\n\n");                  //Информация о программе
@@ -21,6 +21,11 @@ int main(void){
 	if (e[i]<a) {
 	 sum+=e[i];
 	 kv++;
+	}
+	q=&e[i];
+	if (q<a) {
+	  sum2+=*q;
+	  kv2++;
 	}
   }
   if (((k-1)%6)==0)
@@ -50,6 +55,21 @@ int main(void){
   kv=0;
   for (i = 1; i <=k; i++) {
 	if (e[i]<av) {
+	  kv++;
+	}
+  }
+  printf("Quantity of elements less than average: %d\n",kv);
+
+   if (kv2>0) {
+  av2=sum2/kv2;
+  printf("Average of elements less than A: %f\n",av2);
+  }
+  else
+  printf("Average of elements less than A: N/A\n");
+  kv2=0;
+  for (i = 1; i <=k; i++) {
+	q=&e[i];
+	if (p<av) {
 	  kv++;
 	}
   }
