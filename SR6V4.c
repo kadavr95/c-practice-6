@@ -20,7 +20,7 @@ int main(void){
 	e[i]=d+(int)((dd-d)*(rand() / (RAND_MAX + 1.0)));
 	if (e[i]<a) {
 	 sum+=e[i];
-	 kv+=1;
+	 kv++;
 	}
   }
   if (((k-1)%6)==0)
@@ -47,6 +47,13 @@ int main(void){
   }
   else
   printf("Average of elements less than A: N/A\n");
+  kv=0;
+  for (i = 1; i <=k; i++) {
+	if (e[i]<av) {
+	  kv++;
+	}
+  }
+  printf("Quantity of elements less than average: %d\n",kv);
   printf("Dimini Inc.\n");                                                      //Авторские права
   printf("For progressive future\n");
   printf("(c)2009-2012\n");
