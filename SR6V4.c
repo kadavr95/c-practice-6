@@ -15,8 +15,12 @@ int main(void){
   scanf("%d %d %d",&d,&dd,&a);                                                  //создание последовательности рандом
   ltime=time(NULL);
   stime=(unsigned) ltime/2;
-  srand(stime);                                                                 //заполнение массива и вычисление сумм и количеств элементов
-  for (i = 1; i <= (k-1); i++) {
+  srand(stime);
+  if (((k-1)%6)==0)                                                             //задание настроек вывода цикла
+	t=k/6;
+  else
+	t=k/6+1;
+  for (i = 1; i <= (k-1); i++) {                                                //заполнение массива и вычисление сумм и количеств элементов
 	e[i]=d+(int)((dd-d)*(rand() / (RAND_MAX + 1.0)));
 	if (e[i]<a) {                                                               //индексы
 	 sum+=e[i];
@@ -28,20 +32,18 @@ int main(void){
 	  kv2++;
 	}
   }
-  if (((k-1)%6)==0)                                                             //задание настроек вывода цикла
-	t=k/6;
-  else
-	t=k/6+1;
   for (i = 1; i <= t; i++) {                                                    //вывод массива
 	printf("-------------------------------------------\n");
 	printf("Index: ");
 	for (j = 1; j <= 6; j++) {
-	  printf("%6d",j+(i-1)*6);
+	  if ((j+(i-1)*6)<k)
+		printf("%6d",j+(i-1)*6);
 	}
 	printf("\n");
 	printf("Number:");
 	for (j = 1; j <= 6; j++) {
-	  printf("%6d",e[j+(i-1)*6]);
+	  if ((j+(i-1)*6)<k)
+		printf("%6d",e[j+(i-1)*6]);
 	}
 	printf("\n");
   }
@@ -73,7 +75,7 @@ int main(void){
 	  kv2++;
 	}
   }
-  printf("Quantity of elements less than average: %d\n",kv);
+  printf("Quantity of elements less than average: %d\n",kv2);
   printf("\n");
   printf("Dimini Inc.\n");                                                      //Авторские права
   printf("For progressive future\n");
