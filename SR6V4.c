@@ -49,7 +49,7 @@ int main(void){
   }
   printf("-------------------------------------------\n");
   if (kv>0) {                                                                   //среднее индексы
-  av=sum/kv;
+	av=1.0*sum/kv;
   printf("Average of elements less than A: %f\n",av);
   }
   else
@@ -63,7 +63,7 @@ int main(void){
   printf("Quantity of elements less than average: %d\n",kv);
   printf("\n");
    if (kv2>0) {                                                                 //среднее адресная арифметика
-  av2=sum2/kv2;
+  av2=1.0*sum2/kv2;
   printf("Average of elements less than A: %f\n",av2);
   }
   else
@@ -84,4 +84,5 @@ int main(void){
   getchar();
   return 0;
 }
+
 
